@@ -1,5 +1,5 @@
 usersQuery = """
-        query Users($next: String, $replicationKeyValue: DateTimeOrDuration) {
+        query Users($next: String) {
 						users(
 							first: 100
 							after: $next
