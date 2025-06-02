@@ -3,7 +3,6 @@ usersQuery = """
 						users(
 							first: 100
 							after: $next
-							filter: { updatedAt: {gt: $replicationKeyValue } }
 						) {
 							pageInfo {
 								hasNextPage
