@@ -32,4 +32,5 @@ usersSchema = th.PropertiesList(
     th.Property("isMe", th.BooleanType),
     th.Property("statusEmoji", th.StringType),
     th.Property("statusUntilAt", th.DateTimeType),
+    th.Property("inserted_at", th.DateTimeType)
 ).to_dict()

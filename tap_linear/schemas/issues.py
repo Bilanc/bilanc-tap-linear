@@ -80,5 +80,6 @@ issuesSchema = th.PropertiesList(
             th.Property("id", th.StringType),
             th.Property("name", th.StringType),
         ),
-    )
+    ),
+    th.Property("inserted_at", th.DateTimeType)
 ).to_dict()
