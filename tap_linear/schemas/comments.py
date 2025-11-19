@@ -48,5 +48,6 @@ commentsSchema = th.PropertiesList(
             th.Property("name", th.StringType),
             th.Property("url", th.StringType),
         )
-    )
+    ),
+    th.Property("inserted_at", th.DateTimeType)
 ).to_dict()

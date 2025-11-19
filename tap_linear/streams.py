@@ -24,6 +24,12 @@ class IssuesStream(LinearStream):
     replication_key = "updatedAt"
     query = issuesQuery
 
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
+
 
 class ProjectsStream(LinearStream):
 
@@ -32,6 +38,12 @@ class ProjectsStream(LinearStream):
     primary_keys = ["id"]
     replication_key = "updatedAt"
     query = projectsQuery
+
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
 
 
 class UsersStream(LinearStream):
@@ -42,6 +54,12 @@ class UsersStream(LinearStream):
     replication_key = "updatedAt"
     query = usersQuery
 
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
+
 
 class TeamsStream(LinearStream):
 
@@ -50,6 +68,12 @@ class TeamsStream(LinearStream):
     primary_keys = ["id"]
     replication_key = "updatedAt"
     query = teamsQuery
+
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
 
     def get_child_context(self, record: dict, context) -> dict:
         """Return a context dictionary for child streams."""
@@ -66,6 +90,12 @@ class CommentsStream(LinearStream):
     replication_key = "updatedAt"
     query = commentsQuery
 
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
+
 class LabelsStream(LinearStream):
 
     name = "labels"
@@ -75,6 +105,12 @@ class LabelsStream(LinearStream):
     query = labelsQuery
     parent_stream_type = TeamsStream
     ignore_parent_replication_key = True
+
+    def post_process(self, row: dict, context: dict) -> dict:
+        """Add inserted_at timestamp to the record."""
+        from datetime import datetime
+        row["inserted_at"] = datetime.utcnow().isoformat()
+        return row
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result rows."""

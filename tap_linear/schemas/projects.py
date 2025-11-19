@@ -43,4 +43,5 @@ projectsSchema = th.PropertiesList(
             th.Property("email", th.StringType),
         ),
     ),
+    th.Property("inserted_at", th.DateTimeType)
 ).to_dict()

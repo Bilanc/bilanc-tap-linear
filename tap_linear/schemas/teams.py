@@ -14,4 +14,5 @@ teamsSchema = th.PropertiesList(
     th.Property("cycleCooldownTime", th.IntegerType),
     th.Property("autoClosePeriod", th.IntegerType),
     th.Property("autoCloseStateId", th.StringType),
+    th.Property("inserted_at", th.DateTimeType)
 ).to_dict()
